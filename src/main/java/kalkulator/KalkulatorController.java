@@ -11,4 +11,10 @@ public class KalkulatorController {
         return "Tu będzie kalkulator!!!!";
     }
 
+    @RequestMapping("/kalkulator")
+    public String wyswietlanie (){
+        return "kalkulator_form";
+    }
+
+
 }
