@@ -14,13 +14,25 @@ public class KalkulatorController {
 
     @RequestMapping("/kalkulator_form")
     public String obliczenia (
-
+            @RequestParam(value = "pierwszaLiczba", required = false) Double pierwsza,
+            @RequestParam(value = "drugaLiczba", required = false) Double druga,
+            @RequestParam(value = "dzialanie", required = false) String dzialanie,
+            Model model
     ) {
 
-        Kalkulator kalkulator = new Kalkulator (20.00, 10.00);
-        kalkulator.dodawanieLiczb(10.00,15.00);
-        System.out.println(kalkulator.dodawanieLiczb(10.00,15.00));
-        return "costam";
+        Kalkulator kalkulator = new Kalkulator ();
+        if (dzialanie.equals("dodawanie")){
+            kalkulator.dodawanieLiczb(pierwsza,druga);
+
+            System.out.println(kalkulator.getWynikObliczen());
+        }
+
+
+        model.addAttribute("wynik" , kalkulator.getWynikObliczen());
+        model.addAttribute("operaca" , "wybrane działanie to:  "+dzialanie);
+        model.addAttribute("test" , "a kuku ");
+
+        return "wynikDzialania";
     }
 
 
