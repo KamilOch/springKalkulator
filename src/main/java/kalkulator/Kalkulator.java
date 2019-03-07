@@ -15,7 +15,12 @@ public class Kalkulator {
         wynikObliczen = pierwszaLiczba * drugaLiczba;
     }
     public void dzielenieLiczb (Double pierwszaLiczba, Double drugaLiczba ){
-        wynikObliczen = pierwszaLiczba / drugaLiczba;
+        if (drugaLiczba ==0){
+            wynikObliczen = Double.parseDouble("Nie mozna dzielic przez ZERO!!!");;
+        } else {
+
+            wynikObliczen = pierwszaLiczba / drugaLiczba;
+        }
     }
 
     public Double getWynikObliczen() {
