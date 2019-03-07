@@ -21,16 +21,26 @@ public class KalkulatorController {
     ) {
 
         Kalkulator kalkulator = new Kalkulator ();
+
+
         if (dzialanie.equals("dodawanie")){
             kalkulator.dodawanieLiczb(pierwsza,druga);
 
-            System.out.println(kalkulator.getWynikObliczen());
-        }
+        } else if (dzialanie.equals("odejmowanie")){
+            kalkulator.odejmowanieLiczb(pierwsza,druga);
 
+        } else if (dzialanie.equals("mnozenie")){
+            kalkulator.mnozenieLiczb(pierwsza,druga);
+
+        } else if (dzialanie.equals("dzielenie")) {
+            kalkulator.dzielenieLiczb(pierwsza, druga);
+
+        }
+        System.out.println(kalkulator.getWynikObliczen());
 
         model.addAttribute("wynik" , kalkulator.getWynikObliczen());
         model.addAttribute("operaca" , "wybrane działanie to:  "+dzialanie);
-        model.addAttribute("test" , "a kuku ");
+
 
         return "wynikDzialania";
     }
