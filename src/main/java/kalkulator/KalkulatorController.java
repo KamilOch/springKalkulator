@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 @Controller
 public class KalkulatorController {
-
+    // Jeden kalkulator dla wszystkich
     Kalkulator kalkulator;
 
     public KalkulatorController (){
@@ -29,7 +29,7 @@ public class KalkulatorController {
        // Kalkulator kalkulator = new Kalkulator ();
 
         //start synchronizacji, obiektem jest kalkulator jest tylko 1 w programia :)
-        synchronized (kalkulator) {
+       // synchronized (kalkulator) {
 
             if (dzialanie.equals("dodawanie")) {
                 kalkulator.dodawanieLiczb(pierwsza, druga);
@@ -57,7 +57,7 @@ public class KalkulatorController {
             model.addAttribute("operaca", "wybrane działanie to:  " + dzialanie);
 
             // dotad mamy synchronizacje
-    }
+    //}
 
         return "wynikDzialania";
     }
