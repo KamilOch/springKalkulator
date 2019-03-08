@@ -25,39 +25,9 @@ public class KalkulatorController {
             @RequestParam(value = "dzialanie", required = false) String dzialanie,
             Model model
     ) {
-        // to było ok ale robimy eksperyment z uwywaniem tylko jednego kalkulatora dla wszystkich uzytkownikow
-       // Kalkulator kalkulator = new Kalkulator ();
 
-        //start synchronizacji, obiektem jest kalkulator jest tylko 1 w programia :)
-       // synchronized (kalkulator) {
-
-            if (dzialanie.equals("dodawanie")) {
-                kalkulator.dodawanieLiczb(pierwsza, druga);
-
-            } else if (dzialanie.equals("odejmowanie")) {
-                kalkulator.odejmowanieLiczb(pierwsza, druga);
-
-            } else if (dzialanie.equals("mnozenie")) {
-                kalkulator.mnozenieLiczb(pierwsza, druga);
-
-            } else if (dzialanie.equals("dzielenie")) {
-                kalkulator.dzielenieLiczb(pierwsza, druga);
-
-            }
-            System.out.println(kalkulator.getWynikObliczen());
-            try {
-                TimeUnit.MINUTES.sleep(1);
-            } catch (InterruptedException ex) {
-
-            }
-
-            System.out.println(kalkulator.getWynikObliczen());
-
-            model.addAttribute("wynik", kalkulator.getWynikObliczen());
-            model.addAttribute("operaca", "wybrane działanie to:  " + dzialanie);
-
-            // dotad mamy synchronizacje
-    //}
+        model.addAttribute("wynik", kalkulator.noweObliczenia(pierwsza, druga, dzialanie));
+        model.addAttribute("operaca", "wybrane działanie to:  " + dzialanie);
 
         return "wynikDzialania";
     }
