@@ -21,44 +21,39 @@ public class Kalkulator {
 
 
 
-  public boolean sprawdzeniePodaniaLiczb (Double pierwszaLiczba, Double drugaLiczba){
+  private boolean sprawdzeniePodaniaLiczb (Double pierwszaLiczba, Double drugaLiczba){
         if (pierwszaLiczba == null) {
-    //        wynikObliczen = "Nie podałeś pierwszej liczby!";
             return false;
-        } else if (pierwszaLiczba != null && drugaLiczba == null) {
-    //        wynikObliczen = "Nie podałeś drugiej liczby!";
+        } else if ( drugaLiczba == null) {
             return false;
-        }
-        return true;
+        } return true;
     }
 
-   public boolean sprawdzenieDzieleniaPrzezZEro (Double drugaLiczba){
+   private boolean sprawdzenieDzieleniaPrzezZEro (Double drugaLiczba){
         if (drugaLiczba == 0) {
-     //       wynikObliczen = "Nie mozna dzielic przez ZERO!!!";
             return false;
-        }
-        return true;
+        } return true;
     }
 
-    public String dodawanieLiczb (Double pierwszaLiczba, Double drugaLiczba ){
+    private String dodawanieLiczb (Double pierwszaLiczba, Double drugaLiczba ){
         if (sprawdzeniePodaniaLiczb(pierwszaLiczba, drugaLiczba)) {
             return Double.toString(pierwszaLiczba + drugaLiczba);
         } return "Nie podałeś liczby!";
     }
 
-    public String odejmowanieLiczb (Double pierwszaLiczba, Double drugaLiczba ){
+    private String odejmowanieLiczb (Double pierwszaLiczba, Double drugaLiczba ){
 
         if (sprawdzeniePodaniaLiczb(pierwszaLiczba, drugaLiczba)) {
             return Double.toString(pierwszaLiczba - drugaLiczba);
         } return "Nie podałeś liczby!";
     }
-   public String mnozenieLiczb (Double pierwszaLiczba, Double drugaLiczba ){
+   private String mnozenieLiczb (Double pierwszaLiczba, Double drugaLiczba ){
         if (sprawdzeniePodaniaLiczb(pierwszaLiczba, drugaLiczba)) {
             return Double.toString(pierwszaLiczba * drugaLiczba);
         } return "Nie podałeś liczby!";
     }
 
-    public String dzielenieLiczb(Double pierwszaLiczba, Double drugaLiczba) {
+    private String dzielenieLiczb(Double pierwszaLiczba, Double drugaLiczba) {
         if (sprawdzeniePodaniaLiczb(pierwszaLiczba, drugaLiczba) && sprawdzenieDzieleniaPrzezZEro(drugaLiczba)) {
             return Double.toString(pierwszaLiczba / drugaLiczba);
         } return "Nie podałeś liczby! lub dzielisz przez zero!";
