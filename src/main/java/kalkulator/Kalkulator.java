@@ -3,8 +3,31 @@ package kalkulator;
 public class Kalkulator {
     private String wynikObliczen;
 
+    public boolean sprawdzeniePodaniaLiczb (Double pierwszaLiczba, Double drugaLiczba) {
+        if (pierwszaLiczba == null) {
+            wynikObliczen = "Nie podałeś pierwszej liczby!";
+            return false;
+        } else if (pierwszaLiczba != null && drugaLiczba == null) {
+            wynikObliczen = "Nie podałeś drugiej liczby!";
+            return false;
+        } else if (drugaLiczba ==0) {
+            wynikObliczen = "Nie mozna dzielic przez ZERO!!!";
+            return false;
+        }
+        return true;
+    }
+
+    public boolean sprawdzenieDzieleniaPrzezZEro (Double drugaLiczba) {
+        if (drugaLiczba ==0) {
+            wynikObliczen = "Nie mozna dzielic przez ZERO!!!";
+            return false;
+        }
+        return true;
+    }
+
 
     public void dodawanieLiczb (Double pierwszaLiczba, Double drugaLiczba ){
+
         wynikObliczen = Double.toString(pierwszaLiczba + drugaLiczba);
     }
 
@@ -15,19 +38,10 @@ public class Kalkulator {
         wynikObliczen = Double.toString(pierwszaLiczba * drugaLiczba);
     }
     public void dzielenieLiczb (Double pierwszaLiczba, Double drugaLiczba ){
-
-       if (drugaLiczba ==0){
-            wynikObliczen = "Nie mozna dzielic przez ZERO!!!";
-        } else if (pierwszaLiczba == null) {
-           wynikObliczen = "Nie podałeś pierwszej liczby!";
-        } else if (drugaLiczba == null) {
-           wynikObliczen = "Nie podałeś drugiej liczby!";
-        } else {
+        if (sprawdzeniePodaniaLiczb(pierwszaLiczba,drugaLiczba)&& sprawdzenieDzieleniaPrzezZEro(drugaLiczba)) {
             wynikObliczen = Double.toString(pierwszaLiczba / drugaLiczba);
         }
-
     }
-
 
     public String getWynikObliczen() {
         return String.valueOf(wynikObliczen);
