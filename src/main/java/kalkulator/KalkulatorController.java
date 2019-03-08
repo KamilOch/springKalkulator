@@ -25,7 +25,7 @@ public class KalkulatorController {
             @RequestParam(value = "dzialanie", required = false) String dzialanie,
             Model model
     ) {
-        // to było ok ale robimy eksperyment
+        // to było ok ale robimy eksperyment z uwywaniem tylko jednego kalkulatora dla wszystkich uzytkownikow
        // Kalkulator kalkulator = new Kalkulator ();
 
         //start synchronizacji, obiektem jest kalkulator jest tylko 1 w programia :)
