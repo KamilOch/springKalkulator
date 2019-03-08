@@ -8,7 +8,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class KalkulatorController {
 
+    Kalkulator kalkulator;
 
+    public KalkulatorController (){
+        // Jeden kalkulator dla wszystkich
+        kalkulator = new Kalkulator();
+    }
 
 
 
@@ -19,8 +24,8 @@ public class KalkulatorController {
             @RequestParam(value = "dzialanie", required = false) String dzialanie,
             Model model
     ) {
-
-        Kalkulator kalkulator = new Kalkulator ();
+        // to było ok ale robimy eksperyment
+       // Kalkulator kalkulator = new Kalkulator ();
 
 
         if (dzialanie.equals("dodawanie")){
